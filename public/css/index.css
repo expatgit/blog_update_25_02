@@ -1,0 +1,48 @@
+@import "style.css";
+/* подключение style.css в текущий css файл*/
+/* каждый import, который используется для подключения css
+ - отдельный запрос на сервер */
+/* index.css - стили для index.html файла */
+/*
+комментарии
+в css файлах
+*/
+
+
+
+.item {
+    position: relative;
+}
+
+.item q {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.item div {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+/* тег a будет распологаться относительно
+родителя (.item) с position absolute
+с отступами: left: 10%, right: 10%, bottom: 10%*/
+.item a {
+    position: absolute;
+    left: 10%;
+    bottom:10%;
+    right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* стили применятся к div внутри элемента с классом .item,
+ когда на элемент с классом .item навели курсор мыши */
+.item:hover div {
+    display: block;
+}

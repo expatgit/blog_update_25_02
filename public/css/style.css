@@ -1,0 +1,229 @@
+/* style.css - общие стили */
+/* селекторы тегов */
+body {
+    font-size: 32px; /* размер шрифта */
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+/*header,*/
+footer {
+    height: 100px;
+}
+
+
+/* navbar + menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    line-height: 80px;
+}
+
+.navbar-title {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-bottom: 4px solid transparent;
+}
+
+.navbar-title:hover{
+    border-bottom: 4px solid #EFEBE9;
+}
+
+
+
+
+/* navbar + menu */
+
+
+a {
+    /* оформление текста в виде подчеркивания,
+    перечеркивания, линии над текстом*/
+    text-decoration: none;
+}
+
+article{
+    padding: 20px;
+    margin-bottom: 30px;
+}
+ul {
+    /* вид маркера списка */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* при необходимости добавляем маркеры, поля и отступы конкретным ul*/
+}
+
+img {
+    width: 100%; /* ширина - 100% от ширины родителя */
+    height: auto; /* высота пропорционально подстраивается под ширину */
+}
+
+table {
+    /* поведение рамки:  collapse - схлопывание*/
+    border-collapse: collapse;
+    width: 100%; /* 100% от ширины родителя */
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center; /* выравнивание по горизонтали */
+}
+
+table,
+th,
+td {
+    /* рамка: ширина - 1px тип - сплошная линия цвет - черный*/
+    border: 1px solid black;
+}
+
+/*
+.elem :nth-child(odd) .link {}
+.elem :nth-child(odd).link {}
+.class1.class2.class3 {} <div class="class1 class2 class3"></div>
+.class1 .class2 .class3 {}
+<div class="class1">
+    <div class="class2">
+        <div class="class3"></div>
+    </div>
+</div>
+*/
+
+
+
+
+
+/* .elem:nth-child(odd) {} .elem - нечетный элемент внутри
+                                   какого-то родителя*/
+/* .elem :nth-child(odd) стилизуем нечетные элементы внутри .elem */
+tr:nth-child(odd){ /* нечетные tr */
+    background: #f7f5f4;
+}
+
+tr:nth-child(even){ /* четные tr */
+    background: #EFEBE9;
+}
+/* tr :first-child стили применятся к 1му дочернему элементу
+внутри tr*/
+tr:first-child { /* стили применятся к 1му дочернему tr*/
+    background: #BCAAA4;
+}
+
+tr:hover {
+    background: #BCAAA4;
+}
+
+
+
+/* селекторы классов */
+.container {
+    max-width: 1200px; /* максимальная ширина */
+    /* min-width: ; */
+    /* width: 1000px;  ширина */
+    /* height: ; */
+    /*margin-top + margin-bottom - 0,
+    свободное пространство слева и справа от элемента будет распределено
+    равным образом благодаря значению - auto*/
+    margin: 0 auto;
+}
+
+.more-btn {
+    /* display: block - элемент будет вести себя как блочный */
+    /* display: inline - элемент будет вести себя как строчный */
+    /* display: none - скрытие элемента */
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* text-align: center; */
+}
+
+.up-btn {
+    position: fixed;
+    right: 40px; /* fixed 30px с правой стороны */
+    bottom: 40px; /* fixed 30px снизу */
+    padding: 15px;
+    font-size: 35px;
+    border-radius: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* тени */
+/* box-shadow: смещение_по_ширине смещение_по_высоте
+               радиус_размытия растяжение цвет_тени*/
+/* text-shadow: смещение_по_ширине смещение_по_высоте
+               радиус_размытия растяжение цвет_тени*/
+
+.shadow-block {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-btn {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+    text-shadow: 5px 5px 10px #3E2723;
+}
+
+/*<main>*/
+/* .container: margin: 0 auto; */
+/* main: margin-top: 120px; */
+/* !important */
+.main-margin {
+    margin-top: 120px;
+}
+
+
+/* color - цвет текста */
+/* bg - цвет фона */
+
+.text-brown-1 {
+    /* color: #c0c0c0;
+     color: rgb(192,192,192);
+     color: rgba(192,192,192, 0.4);
+     color: black; */
+    color: #EFEBE9; /* цвет текста */
+}
+
+.text-brown-9 {
+    color: #3E2723;
+}
+
+.bg-orange-1 {
+    background: #FBE9E7;
+}
+
+.bg-brown-1 {
+    background: #EFEBE9;
+}
+
+.bg-brown-7 {
+    background: #5D4037;
+}
+
+.bg-brown-9 {
+    background: #3E2723;
+}
+
+/*
+brown #795548
+brown-1 #EFEBE9
+brown-2 #D7CCC8
+brown-3 #BCAAA4
+brown-4 #A1887F
+brown-5 #8D6E63
+brown-6 #6D4C41
+brown-7 #5D4037
+brown-8 #4E342E
+brown-9 #3E2723*/

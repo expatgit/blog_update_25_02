@@ -1,0 +1,31 @@
+/* menu */
+aside {
+    margin-top: 120px;
+    margin-bottom: 30px;
+}
+
+aside nav {
+    display: flex;
+}
+
+aside nav a {
+    padding: 20px 10px;
+    color: #3E2723;
+    text-align: center;
+    flex-grow: 1;
+}
+aside nav :nth-child(1) {
+    background-color: rgba(255, 97, 56, 1);
+}
+
+aside nav :nth-child(2) {
+    background-color: rgba(255, 255, 157, 1);
+}
+
+aside nav :nth-child(3) {
+    background-color: rgba(190, 235, 159, 1);
+}
+
+aside nav :nth-child(4) {
+    background-color: rgba(121, 189, 143, 1);
+}

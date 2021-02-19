@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Заголовок вкладки{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    {% block head_javascripts %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-orange-1 text-brown-9">
+<header class="bg-brown-7">
+    <div class="container navbar">
+        <a href="#" class="text-brown-9">B</a>
+        <nav>
+            <a class="navbar-title text-brown-1" href="/">Главная</a>
+            <a class="navbar-title text-brown-1" href="/article">Статьи</a>
+            <a class="navbar-title text-brown-1" href="#">Магазин</a>
+            <a class="navbar-title text-brown-1" href="#">Контакты</a>
+        </nav>
+    </div>
+</header>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+{% block body %}{% endblock %}
+
+<a href="#" class="up-btn text-brown-1 bg-brown-9 material-icons">arrow_upward</a>
+
+<footer class="bg-brown-7">Подвал сайта</footer>
+
+{% block body_javascripts %}{% endblock %}
+
+</body>
 </html>

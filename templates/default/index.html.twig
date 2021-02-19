@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <main class="container main-margin">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/FILES/WEB/blog/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/FILES/WEB/blog/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <section>
+            <h2>Популярные статьи</h2>
+            <article class="shadow-block">
+                <h3>Работа с глиной</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Amet <span class="text-shadow">asperiores atque</span>
+                    autem dolorem dolores eos
+                    facilis fugiat impedit inventore magni molestiae
+                    <span class="text-shadow">fugiat impedit inventore</span> magni molestiae nobis quae quia
+                    quisquam sint sit tempore, tenetur veniam.
+                </p>
+                <a class="shadow-btn more-btn bg-brown-9 text-brown-1 text-center" href="#">Подробнее</a>
+            </article>
+
+        </section>
+
+    </main>
+
 {% endblock %}
+
+

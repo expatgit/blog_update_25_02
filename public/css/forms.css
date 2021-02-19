@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+}
+
+.authorization {
+    background-image: url("../img/cake.jpg");
+    background-repeat: no-repeat;
+    background-position: center; /* ДЗ */
+    background-size: cover; /* ДЗ */
+
+    height: 100vh;
+    /*opacity: 0.3; */
+    position: relative;
+    z-index: 1;
+}
+.authorization:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}
+/* стили формы */
+.authorization form {
+    width: 450px;
+    border-radius: 10px;
+    background: #FF4E00;
+    padding: 40px;
+}
+
+/* сброс стилей input */
+input {
+    /* по умолчанию input отображается с рамкой */
+    border-style: none;
+    /* outline - контур элемента, появляется, когда input в фокусе */
+    outline-style: none;
+    background: transparent;
+}
+/* селектор[атрибут] или селектор[атрибут=значение]*/
+input[type=text],
+input[type=password] {
+    width: 400px;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+    color: white;
+    padding: 0 0 5px 30px;
+}
+
+
+
