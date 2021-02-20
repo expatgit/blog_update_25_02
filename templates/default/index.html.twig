@@ -3,24 +3,25 @@
 {% block title %}Главная{% endblock %}
 
 {% block body %}
-
+{# комментарий #}
+{#    {{ вывод данных }}
+      {% блоки, циклы, ветвления %}
+ #}
     <main class="container main-margin">
-
         <section>
-            <h2>Популярные статьи</h2>
-            <article class="shadow-block">
-                <h3>Работа с глиной</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Amet <span class="text-shadow">asperiores atque</span>
-                    autem dolorem dolores eos
-                    facilis fugiat impedit inventore magni molestiae
-                    <span class="text-shadow">fugiat impedit inventore</span> magni molestiae nobis quae quia
-                    quisquam sint sit tempore, tenetur veniam.
-                </p>
-                <a class="shadow-btn more-btn bg-brown-9 text-brown-1 text-center" href="#">Подробнее</a>
-            </article>
-
+            {% if articles %}
+                <h2>Популярные статьи</h2>
+                {% for article in articles %}
+                    <article class="shadow-block">
+                        <h3>{{ article.title | upper }}</h3>
+                        <p>{{ article.text }}</p>
+                        <a class="shadow-btn more-btn bg-brown-9 text-brown-1 text-center"
+                           href="{{ path('article_by_id', { 'id': article.id }) }}">Подробнее</a>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <h2>Статьи не были написаны</h2>
+            {% endif %}
         </section>
 
     </main>

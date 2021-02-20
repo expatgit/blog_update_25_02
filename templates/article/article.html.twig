@@ -6,23 +6,27 @@
 
     <main class="container main-margin">
 
-        <article>
-            <h1>Про изготовление печенья</h1>
+        {% if article %}
+            <article>
+                <h1>{{ article.title }}</h1>
+                <p>Статья из категории
+                    <a href="{{ path('article_by_category', { 'category':article.category.url }) }}">
+                        {{ article.category.name | upper }}
+                    </a>
+                </p>
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Alias, aut cumque facilis in molestiae obcaecati
-                reprehenderit. Ab aliquid amet aut consequuntur cum
-                cumque dolorem doloremque eos error esse ex expedita
-                explicabo id iste laboriosam molestiae nihil nulla
-                numquam perspiciatis quas quod repudiandae rerum sint,
-                sit, veritatis vitae, voluptate voluptatem?
-                Commodi dignissimos, eius est explicabo hic ipsam
-                obcaecati pariatur voluptates voluptatibus?
-            </p>
+                <p>Написана {{ article.createdOn | date("m.d.Y H:i") }}</p>
 
-            <img src="#" alt="печеньки" height="300" width="600">
-        </article>
+                <p>{{ article.text }}</p>
+
+                {% for img in article.image %}
+                    <img src="{{ asset('img/'~ img.src )}}" alt="{{ img.alt }}">
+                {% endfor %}
+
+            </article>
+        {% else %}
+            <h2>Статья по Вашему запросу еще не была написана</h2>
+        {% endif %}
 
     </main>
 

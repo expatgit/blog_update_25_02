@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,8 +35,15 @@ class DefaultController extends AbstractController
         // $request->query->get('id'); - 1
         // $request->query->get('category'); - wood
 
+        // получение данных
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findAll();
+
+        dump($articles);
+
         return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
+            'articles' => $articles
         ]);
     }
 }
