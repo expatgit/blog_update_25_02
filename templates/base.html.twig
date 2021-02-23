@@ -14,7 +14,10 @@
         <a href="#" class="text-brown-9">B</a>
         <nav>
             <a class="navbar-title text-brown-1" href="/">Главная</a>
-            <a class="navbar-title text-brown-1" href="/article">Статьи</a>
+            <a class="navbar-title text-brown-1"
+               href="{{ path('article_by_category', {'category': random(categories) }) }}">
+                Статьи
+            </a>
             <a class="navbar-title text-brown-1" href="#">Магазин</a>
             <a class="navbar-title text-brown-1" href="#">Контакты</a>
         </nav>

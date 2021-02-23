@@ -14,7 +14,11 @@
                 {% for article in articles %}
                     <article class="shadow-block">
                         <h3>{{ article.title | upper }}</h3>
-                        <p>{{ article.text }}</p>
+                        <p>{{ article.text[:300] }}...</p>
+                        {# [первый символ:количество символов]   #}
+                        {# текст [1:3] екс                       #}
+                        {# [:3] тек                       #}
+                        {# [3:]                      #}
                         <a class="shadow-btn more-btn bg-brown-9 text-brown-1 text-center"
                            href="{{ path('article_by_id', { 'id': article.id }) }}">Подробнее</a>
                     </article>

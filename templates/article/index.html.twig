@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Название категории{% endblock %}
+{% block title %}{{ category_by_url.name }}{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
@@ -9,25 +9,29 @@
 {% block body %}
     <aside>
         <nav>
-            <a href="#">Категория 1</a>
-            <a href="#">Категория 2</a>
-            <a href="#">Категория 3</a>
-            <a href="#">Категория 4</a>
+{#            all_categories #}
+            {% for category in all_categories %}
+                <a href="{{ path('article_by_category', {'category':category.url}) }}">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
         </nav>
     </aside>
 
     <main class="container main-margin">
-        <h2>Статьи из категории Название категории</h2>
-        <article class="shadow-block">
-            <h3>Работа с глиной</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Amet asperiores atque autem dolorem dolores eos facilis
-                fugiat impedit inventore magni molestiae nobis quae quia
-                quisquam sint sit tempore, tenetur veniam.
-            </p>
-            <a class="shadow-btn more-btn bg-brown-9 text-brown-1 text-center" href="#">Подробнее</a>
-        </article>
+        <h2>Статьи из категории {{ category_by_url.name | upper }}</h2>
+        <p>{{ category_by_url.description }}</p>
+        {% for article in category_by_url.articles %}
+            <article class="shadow-block">
+                <h3>{{ article.title | upper}}</h3>
+                <span>{{ article.createdOn | date("m.d.Y H:i") }}</span>
+                <p>{{ article.text[:400] }}...</p>
+                <a class="shadow-btn more-btn bg-brown-9 text-brown-1 text-center"
+                   href="{{ path('article_by_id', {'id':article.id}) }}">
+                    Подробнее
+                </a>
+            </article>
+        {% endfor %}
 
     </main>
 {% endblock %}

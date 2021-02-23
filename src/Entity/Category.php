@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Category
  *
  * @ORM\Table(name="category")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=App\Repository\CategoryRepository::class)
  */
 class Category
 {
@@ -41,6 +41,22 @@ class Category
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category")
+     */
+    private $articles;
+
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+    }
+
 
     public function getId(): ?int
     {

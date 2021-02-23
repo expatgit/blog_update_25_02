@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,13 +28,27 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/{category}", name="article_by_category")
      */
-    public function byCategory($category){
+    public function byCategory($category){ // url
 
-        dump($category);
+        $all_categories = $this->getDoctrine() // объект Doctrine
+            ->getRepository(Category::class) // объект репозитория
+            ->findAll(); // SELECT * FROM CATEGORY;
+
+        $category_by_url = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findByUrl($category);
 
         return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
+            'all_categories' => $all_categories,
+            'category_by_url' => $category_by_url
         ]);
     }
 
 }
+
+// requirements id - число
+// /article/{id} - /article/12
+
+// /article/{category} - /article/yhe6yue64uw64u
+
+
