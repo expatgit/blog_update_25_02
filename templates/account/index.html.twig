@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <form name="add-article" enctype="multipart/form-data"
+            method="post" action="{{ path('add_article') }}">
+        <div>
+            <label for="category">Выбор категории</label>
+            <select id="category" name="category">
+                {% for category in all_categories %}
+                    <option value="{{ category.id }}">
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Название статьи
+                <input type="text" name="title">
+            </label>
+        </div>
+        <div>
+            <textarea name="text" placeholder="Текст статьи">
+            </textarea>
+        </div>
+        <div>
+            <label>Изображения:
+                <input type="file" multiple name="images[]">
+            </label>
+        </div>
+        <input type="submit" value="Добавить">
+    </form>
+
+    <script src="{{ asset('js/add-article.js') }}"></script>
+</body>
+</html>
