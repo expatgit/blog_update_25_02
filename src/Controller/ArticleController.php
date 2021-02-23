@@ -10,12 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-// /article GET
-// /article/{id} GET
-// /article POST
-// /article DELETE
-// /article PUT
-
 class ArticleController extends AbstractController
 {
     /**
@@ -99,13 +93,3 @@ class ArticleController extends AbstractController
     }
 
 }
-
-// requirements id - число
-// /article/{id} - /article/12
-
-// /article/{category} - /article/yhe6yue64uw64u
-
-// service container
-/*[
-
-]*/
