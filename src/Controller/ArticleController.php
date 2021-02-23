@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Images;
 use App\Service\ArticleService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,24 +33,29 @@ class ArticleController extends AbstractController
             ->find($post_data['category']);
         $article->setCategory($category_by_id);
 
-        // добавление данных в таблицу
+        // менеджер сущностей
         $entity_manager = $this->getDoctrine()->getManager();
-        $entity_manager->persist($article);
-        $entity_manager->flush();
+        $entity_manager->persist($article); // $article перешел под управление менеджера
 
         // загрузка файлов
         $files = $request->files->get('images');
         foreach ($files as $file){
-            $file->getSize(); // размер файла
-            $file->getClientOriginalName(); // имя файла
+            // $file->getSize(); // размер файла
+            // $file->getClientOriginalName(); // имя файла
             $file_name = 'уникальное_имя.' . $file->guessExtension();
             $file->move(
                 $this->getParameter('article_images'),
                 $file_name
             );
+            $img = new Images();
+            $img->setSrc($file_name);
+            $img->setAlt($file->getClientOriginalName());
+            $img->addArticle($article);
+            $entity_manager->persist($img); // $img перешел под управление менеджера
         }
 
-
+        // добавление данных в таблицы
+        $entity_manager->flush();
 
 
         // ответ в json формате
