@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,7 +41,19 @@ class DefaultController extends AbstractController
             ->getRepository(Article::class)
             ->findAll();
 
-        dump($articles);
+
+        // запросы
+        dump($this->getDoctrine()->getRepository(Article::class)->findOneBy([
+            'title' => '5 СПОСОБОВ СОСТАРИВАНИЯ ДРЕВЕСИНЫ'
+        ]));
+        dump($this->getDoctrine()->getRepository(Article::class)->count([
+            'title' => '5 СПОСОБОВ СОСТАРИВАНИЯ ДРЕВЕСИНЫ'
+        ]));
+        dump($this->getDoctrine()->getRepository(Article::class)->in([4, 3, 56]));
+        dump($this->getDoctrine()->getRepository(Article::class)->like('СПОСОБОВ'));
+        // 2 записи, начиная с 3й
+        dump($this->getDoctrine()->getRepository(Article::class)->innerJoin('wood', 2, 3));
+
 
         return $this->render('default/index.html.twig', [
             'articles' => $articles
