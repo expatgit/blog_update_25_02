@@ -5,6 +5,8 @@
     <title>Личный кабинет</title>
 </head>
 <body>
+    <h3>Добро пожаловать, {{ app.user.username | upper }}</h3>
+
     <form name="add-article" enctype="multipart/form-data"
             method="post" action="{{ path('add_article') }}">
         <div>

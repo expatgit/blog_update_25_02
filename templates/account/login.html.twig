@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в личный кабинет</title>
+</head>
+<body>
+
+{% if error %}
+    <div>Ошибка входа</div>
+{% endif %}
+
+<form action="{{ path('login') }}" method="post">
+    <label for="login">Логин:</label>
+    <input type="text" id="login" name="_username" value="{{ last_username }}" />
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="_password" />
+
+
+    <input type="hidden" name="_account" value="/account" />
+
+
+    <button type="submit">Войти</button>
+</form>
+
+</body>
+</html>
+
+
+

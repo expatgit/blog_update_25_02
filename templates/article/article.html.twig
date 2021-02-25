@@ -23,6 +23,9 @@
                     <img src="{{ asset('img/'~ img.src )}}" alt="{{ img.alt }}">
                 {% endfor %}
 
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('article_delete', { 'id':article.id, 'category': article.category.url}) }}">Удалить</a>
+                {% endif %}
             </article>
         {% else %}
             <h2>Статья по Вашему запросу еще не была написана</h2>

@@ -92,4 +92,26 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/article/delete/{category}/{id}", name="article_delete")
+     */
+    public function deleteById($category, $id){
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $article =  $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->find($id);
+
+        $entityManager->remove($article);
+        $entityManager->flush();
+
+        // перенаправления:
+        // return $this->redirectToRoute('homepage');
+        // return $this->redirectToRoute('homepage', [], 301);
+        // return $this->redirectToRoute('app_lucky_number', ['max' => 10]);
+        // return $this->redirectToRoute('blog_show', $request->query->all());
+
+        return $this->redirectToRoute('article_by_category', ['category' => $category]);
+    }
 }
