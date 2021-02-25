@@ -23,8 +23,8 @@ security:
                 login_path: login
                 check_path: login
             logout:
-                path: /logout
-                target: /
+                path: /logout  # <a href="/logout">Выйти</a>
+                target: / # перенаправление после закрытия сессии
 
     access_control:
         - { path: ^/account, roles: ROLE_ADMIN }

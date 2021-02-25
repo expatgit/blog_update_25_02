@@ -43,6 +43,13 @@ class DefaultController extends AbstractController
 
 
         // запросы
+        // SELECT * FROM category where url = 'wood'
+
+        // SELECT * FROM article where title = '5 СПОСОБОВ СОСТАРИВАНИЯ ДРЕВЕСИНЫ'
+        // findOneBy(['свойство' => 'значение', 'свойство2' => 'значение' ])
+        // findBy(['свойство' => 'значение', 'свойство2' => 'значение' ])
+        // findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+
         dump($this->getDoctrine()->getRepository(Article::class)->findOneBy([
             'title' => '5 СПОСОБОВ СОСТАРИВАНИЯ ДРЕВЕСИНЫ'
         ]));
@@ -53,6 +60,7 @@ class DefaultController extends AbstractController
         dump($this->getDoctrine()->getRepository(Article::class)->like('СПОСОБОВ'));
         // 2 записи, начиная с 3й
         dump($this->getDoctrine()->getRepository(Article::class)->innerJoin('wood', 2, 3));
+        dump($this->getDoctrine()->getRepository(Article::class)->dql(5));
 
 
         return $this->render('default/index.html.twig', [
