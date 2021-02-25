@@ -112,10 +112,9 @@ class ArticleController extends AbstractController
         $entityManager->flush();
 
         // перенаправления:
-        // return $this->redirectToRoute('homepage');
-        // return $this->redirectToRoute('homepage', [], 301);
-        // return $this->redirectToRoute('app_lucky_number', ['max' => 10]);
-        // return $this->redirectToRoute('blog_show', $request->query->all());
+        // return $this->redirectToRoute('route_name');
+        // return $this->redirectToRoute('route_name', [], 301);
+        // return $this->redirectToRoute('route_name', ['max' => 10]);
 
         return $this->redirectToRoute('article_by_category', ['category' => $category]);
     }
