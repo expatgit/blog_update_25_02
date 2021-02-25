@@ -14,8 +14,12 @@ class ArticleController extends AbstractController
 {
     /**
      * @Route("/article", name="add_article", methods={"POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function addArticle(ArticleService $service, Request $request){
+
+
+
         $post_data = $request->request->all();
 
         $article = new Article();
