@@ -8,7 +8,7 @@ security:
         in_memory:
             memory:
                 users:
-                    owner:
+                    web:
                         password: $2y$12$lWmW9m8QnSc9OcTlCZ0UfO/0GhCEdbPhY6SBGZlcCqoe4XihAyuYi
                         roles: 'ROLE_ADMIN'
 
